@@ -3,7 +3,7 @@
 Sistema de triagem médica que utiliza **Machine Learning** para classificar a prioridade de atendimento de pacientes com base no **Protocolo de Manchester**, analisando sinais vitais em tempo real.
 
 **Matéria:** Microserviços para Ciência de Dados  
-**Grupo 2 — Faculdade Donà Duzzi**
+**Grupo 2 — Faculdade DonaDuzzi**
 
 ---
 
@@ -11,7 +11,7 @@ Sistema de triagem médica que utiliza **Machine Learning** para classificar a p
 
 ```mermaid
 graph TD
-    A[👤 Usuário / Swagger UI<br/>localhost:8080/swagger-ui] -->|POST /api/triagem| B
+    A[ Usuário / Swagger UI<br/>localhost:8080/swagger-ui] -->|POST /api/triagem| B
 
     subgraph triagem-service ["☕ triagem-service (Spring Boot :8080)"]
         B[TriagemController] --> C[TriagemService]
