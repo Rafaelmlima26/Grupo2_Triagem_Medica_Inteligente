@@ -1,8 +1,9 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/triagem_medica
-    username: admin
-    password: admin123
+    # usa variavel de ambiente se tiver, senao usa localhost (dev local)
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/triagem_medica}
+    username: ${DB_USER:admin}
+    password: ${DB_PASSWORD:admin123}
   jpa:
     hibernate:
       ddl-auto: update
@@ -10,3 +11,7 @@ spring:
 
 server:
   port: 8080
+
+# url do servico de machine learning
+ml-service:
+  url: ${ML_SERVICE_URL:http://localhost:8000}
