@@ -11,29 +11,28 @@ Sistema de triagem médica que utiliza **Machine Learning** para classificar a p
 
 ```mermaid
 graph TD
-    A[👤 Usuário / Swagger UI<br/>localhost:8080/swagger-ui] -->|POST /api/triagem| B
+    A["Usuário / Swagger UI\nlocalhost:8080/swagger-ui"] -->|"POST /api/triagem"| B
 
-    subgraph triagem-service ["☕ triagem-service (Spring Boot :8080)"]
+    subgraph triagem-service ["triagem-service - Spring Boot :8080"]
         B[TriagemController] --> C[TriagemService]
         C -->|valida entrada| C
-        C -->|POST /predict| D
-        D --> E[RestClient]
+        C -->|"POST /predict"| E[RestClient]
     end
 
-    subgraph ml-service ["🐍 ml-service (FastAPI + sklearn :8000)"]
-        F[/predict] --> G[Random Forest]
+    subgraph ml-service ["ml-service - FastAPI + sklearn :8000"]
+        F["Endpoint /predict"] --> G[Random Forest]
         G --> H[Classificação de Prioridade]
     end
 
-    subgraph postgres ["🐘 postgres (:5432)"]
-        I[(triagem_medica DB<br/>tabela: triagens)]
+    subgraph postgres ["postgres :5432"]
+        I[("triagem_medica DB\ntabela: triagens")]
     end
 
     E -->|HTTP JSON| F
-    H -->|prioridade, descrição, código| C
+    H -->|"prioridade, descrição, código"| C
     C -->|salva triagem + resultado ML| I
     C -->|retorna Triagem completa| B
-    B -->|201 Created| A
+    B -->|"201 Created"| A
 ```
 
 ### Fluxo resumido
