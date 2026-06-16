@@ -93,9 +93,9 @@ Exemplo de resposta (201 Created):
   "pressaoSistolica": 95.0,
   "saturacaoO2": 91.0,
   "nivelDor": 8,
-  "prioridade": "Laranja",
-  "descricaoPrioridade": "Muito Urgente - Ate 10 minutos",
-  "codigoPrioridade": 1,
+  "prioridade": "Amarelo",
+  "descricaoPrioridade": "Urgente - Ate 60 minutos",
+  "codigoPrioridade": 2,
   "dataTriagem": "2026-06-15T14:30:00"
 }
 ```
